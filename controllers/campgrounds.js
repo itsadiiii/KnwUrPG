@@ -37,7 +37,7 @@ module.exports.showCampground = async (req, res,) => {
         }
     }).populate('author');
     if (!campground) {
-        req.flash('error', 'Cannot find that dorm!');
+        req.flash('error', 'Cannot find that PG!');
         return res.redirect('/campgrounds');
     }
     res.render('campgrounds/show', { campground });
@@ -47,7 +47,7 @@ module.exports.renderEditForm = async (req, res) => {
     const { id } = req.params;
     const campground = await Campground.findById(id)
     if (!campground) {
-        req.flash('error', 'Cannot find that dorm!');
+        req.flash('error', 'Cannot find that PG!');
         return res.redirect('/campgrounds');
     }
     res.render('campgrounds/edit', { campground });
